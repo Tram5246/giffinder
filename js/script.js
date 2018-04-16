@@ -3,10 +3,14 @@
 //****************** SERIOUSLY TEST USING console.log()!!! ******************
 
 $(document).ready(function(){
-  function appendImageToBody(srcURL) {
+  function appendImageToBody(urlf,urls,urlt) {
     // this function appends an <img> to the body with the
     // URL provided in the parameters
-    $(".text-center").replaceWith("<img class='text-center' src=" + srcURL + ">");
+    var imgf="<img src="+urlf+"/>";
+    var imgs="<img src="+urls+"/>";
+    var imgt="<img src="+urlt+"/>";
+    var final="<div class='text-center'>"+imgf+imgs+imgt+"</div>";
+    $(".text-center").replaceWith(final);
 }
 
 // DO NOT MODIFY ABOVE THIS LINE. READ THE COMMENTS BELOW TO COMPLETE THE FUNCTIONS.
@@ -24,9 +28,13 @@ function callGiphyAPIWithSearchTerm(searchTerm) {
         url: giphyURLWithSearchTerm(searchTerm),
         method: "GET",
         success: function(response) {
-            var url = response.data[0].images.original.url;
+            var urlf = response.data[0].images.original.url;
+            var urls = response.data[1].images.original.url;
+            var urlt = response.data[2].images.original.url;
+            var urlfo = response.data[3].images.original.url;
+            var urlsfi= response.data[5].images.original.url;
             // call the appendImageToBody function to add the image to the page
-            appendImageToBody(url);
+            appendImageToBody(urlf,urls,urlt);
       },
     }); 
 }
