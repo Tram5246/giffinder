@@ -6,7 +6,7 @@ $(document).ready(function(){
   function appendImageToBody(srcURL) {
     // this function appends an <img> to the body with the
     // URL provided in the parameters
-    $("").replaceWith("<img src=" + srcURL + ">");
+    $(".text-center").replaceWith("<img class='text-center' src=" + srcURL + ">");
 }
 
 // DO NOT MODIFY ABOVE THIS LINE. READ THE COMMENTS BELOW TO COMPLETE THE FUNCTIONS.
